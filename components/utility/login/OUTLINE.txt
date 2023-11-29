@@ -1,0 +1,1 @@
+utilize firebase/firestore to login and add business to app state

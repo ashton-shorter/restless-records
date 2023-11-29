@@ -1,33 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+// Routing
+import { Route, Routes} from 'react-router-dom'
+// Components
+import Header from '../components/utility/header/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [appState, setAppState] = useState({});
 
+  //#region Props
+  const homeProps = {};
+  const talentProps = {};
+  const staffProps = {};
+  const eventsProps = {};
+  const rentalProps = {};
+  const merchProps = {};
+  const blogProps = {};
+  const profileProps = {};
+  //#endregion Props
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      {/* <Routes> */}
+        {/* <Route path ='/' element={<Home {...homeProps}/>} /> */}
+        {/* <Route path ='/talent' element={<Businesses {...talentProps} />} /> */}
+        {/* <Route path ='/staff' element={<Businesses {...staffProps} />} /> */}
+        {/* <Route path ='/events' element={<Events {...eventsProps} />} /> */}
+        {/* <Route path ='/rental' element={<Shop {...rentalProps} />} /> */}
+        {/* <Route path ='/merch' element={<Shop {...merchProps} />} /> */}
+        {/* <Route path ='/blog' element={<Blog {...blogProps} />} /> */}
+        {/* <Route path ='/profile' element={<Profile {...profileProps}/>} /> */}
+      {/* </Routes> */}
     </>
   )
 }
