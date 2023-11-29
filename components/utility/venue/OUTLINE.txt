@@ -1,0 +1,8 @@
+From Events page, user can filter by venue.
+In this returned view, we will display a popup of:
+    name
+    image
+    address
+    all events
+
+should also be able to like venues to add credibility especially if they post their space for rent

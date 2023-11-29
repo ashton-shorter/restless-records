@@ -1,0 +1,2 @@
+A popup view for profiles
+Displays: name, bio, profile picture, all media, & social media

@@ -1,0 +1,5 @@
+Display all events from closest to today to furthest
+User can view talent via popups on click
+can filter by
+    venue
+    hiring

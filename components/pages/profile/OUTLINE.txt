@@ -1,0 +1,6 @@
+*Virtually same thing as profile-viewer except can edit
+User can 
+    login/out
+    update their profile info. 
+    view analytics
+    

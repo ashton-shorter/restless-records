@@ -1,0 +1,60 @@
+What is the main goal of this site?
+    Promote locals through an upwork/soundcloud hybrid with unique design
+    Very musician oriented. Most of the content will be songs to listen&like
+    This is an advertisement hub for
+        Performers,
+        Vendors,
+        Artists,
+        Venues,
+        Events
+    Event Hosts will come here to hand pick their staff
+        This includes
+            Staff - each will have a record of shows worked
+                Bartenders,
+                Security,
+                Stagehands
+            Equipment Rental
+                This will have to include scheduling, and payment services
+                In the beginning can be by inquiry
+
+    So this is a site where artists can display their work to potentially land a gig
+    Venues advertise their events
+    A place where local staff can be hired
+    Equipment can be rented
+
+    *All businesses and events should have designated database space to load media
+    *A good idea is to implement a messaging service as to keep communications and engagement within the site
+    *This should also be an all-in-one platform where you can buy preloaded/gift cards to attend events now or in the future
+    *Hiring talent/staff searches by zip code 
+
+So there are two business categories
+    Talent:
+        Musicians,
+        Performers,
+        Vendors,
+        Live Artists
+    Staff:
+        Bartenders,
+        Security,
+        Stagehands
+Pages:
+    Talent
+    Staff
+    Events&Venues(Won't always be at a venue)
+        venues can list a rental price as well
+    Equipment Rental
+    Profile
+    Blog
+    Merch
+
+For Event hosts, to contact talent/staff/venues/equipment renters
+    talk through the messaging system
+    and/or they can post an event that is looking for x and y
+        users should be able to filter by events that are looking to hire
+
+The messaging system could get annoying if popular artists are bothered by non talent buyers a lot
+    one fix is the ability to filter their messages from talent buyers only
+        this won't eliminate fake talent buyers
+        but you can by adding additional filtering based upon the talent buyer rep
+
+    I really like the messaging system for general users to talk with each other about events and whatnot.

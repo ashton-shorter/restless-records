@@ -1,0 +1,14 @@
+Sections
+    Next Event
+    Musician of the month
+    Featured Businesses
+    Subscribe to be featured
+ 
+eventManager.events[0]; // should be the latest event
+
+musician of the month = the musician with the most likes this month
+
+Featured Businesses = businessManager.featuredBusiness.map
+
+10$ a month to be featured. Stripe checkout
+    

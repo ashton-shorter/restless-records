@@ -1,0 +1,8 @@
+reuasable businesses mapper for both the 'talent', and 'staff' pages
+default filter by zip code
+    one or multiple types
+    likes
+    newest-oldest
+
+Like the media
+profile-viewer popup on click

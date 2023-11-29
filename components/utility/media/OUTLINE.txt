@@ -1,0 +1,1 @@
+returns appropriate media component

@@ -1,0 +1,11 @@
+So what can I currently focus on to scale this down a bit?
+
+Start with listing only talent, not staff
+Venues and events
+
+setup DB
+
+Login & Profile Creation
+Viewing profiles
+
+Figuring out how to display businesses with multiple types
