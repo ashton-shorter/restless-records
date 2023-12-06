@@ -1,0 +1,179 @@
+@import '../../../styles//globals.scss';
+
+$ltr-spacing: .75rem;
+
+@keyframes slideBg {
+    from {background-position: 0, 0;}
+    to { background-position: 1000%, 0;}
+}
+
+@keyframes lightingFX{
+    0% {
+        background: rgb(255, 0, 106, .5);
+    }
+
+    20% {
+        background: rgba(98, 0, 255, 0.5);
+    }
+
+    40% {
+        background:rgba(21, 255, 0, 0.6);
+    }
+
+    60% {
+        background: rgba(251, 255, 0, 0.5);
+    }
+
+    80% {
+        background: rgb(255, 0, 0, .5);
+    }
+
+    100% {
+        background: rgb(255, 0, 106, .5);
+    }
+}
+
+@mixin item {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    font-size: 27px;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 0px black, 0px 0px 5px black;
+}
+
+.event { 
+    overflow: hidden;
+    height: 600px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    color: white;
+    
+    font-family: "Downcome";
+    letter-spacing: calc($ltr-spacing/2);
+
+    background: url('../../../public/images/events/eventBackdrop.PNG');
+    background-repeat: repeat-x;
+    background-position: 0, 0;
+    background-size: 100vw, 600px;
+
+    animation: slideBg 10s linear infinite alternate;
+
+    &:hover {
+        cursor: default;
+    }
+
+    &__overlay {
+        
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        left: 0;
+        animation: lightingFX 50s linear infinite;
+    }
+
+    &__header {
+        padding: 50px;
+        padding-bottom: 35px;
+        height: 100px; width: 100%;
+        display: flex;
+
+        &__title {
+            position: relative;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Kontanter';
+            font-size: 60px;
+            font-weight: 100;
+            letter-spacing: $ltr-spacing;
+            color: white;
+            text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 0px red, 0px 0px 5px $pink;
+        }
+
+        &__subTitle {
+            position: relative;
+            width: 40%; 
+    
+            display: flex;
+            align-items: center;
+            
+            font-size: 30px;
+            letter-spacing: $ltr-spacing;
+            text-align: center;
+            text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 0px black, 0px 0px 5px black;
+        }
+    }
+
+    &__grid {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 50px;
+
+        &__titles {
+            position: relative;
+            padding-bottom: 15px;
+            display: flex;
+            font-size: 30px;
+            letter-spacing: $ltr-spacing;
+
+            &__title {
+                text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 0px red, 0px 0px 5px $pink;
+                width: 33.3%;
+                text-align: center;
+            }
+        }
+
+        &__section {
+            position: relative;
+            width: 33.3%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__item {
+                @include item;
+                
+                transition: all .3s;
+                &:hover {
+                    cursor: pointer;
+                    text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 0px red, 0px 0px 5px $pink;
+                }
+            }
+
+            &__item__nohover {
+                @include item;
+            }
+        }
+
+        &__details {
+            &__purchase {
+                @include btn;
+                margin-top: 20px;
+                width: 350px; height: 75px;
+                
+                letter-spacing: .7rem;
+                font-size: 40px;
+                
+                transition: all .5s;
+                &:hover {
+                    border: 1px solid black;
+                    box-shadow: 0px 0px 25px black;
+                }
+            }
+        }
+    }
+}
+
+// Give musicians two columns instead of one (Max of 8 performers)
+#musicians {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(4, 25%);
+}

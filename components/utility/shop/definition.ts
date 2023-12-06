@@ -1,16 +1,16 @@
-import { Profile } from '../../definititon';
+import { profile } from '../../definititon';
 
-export type Item = {
+export type item = {
     name: string;
     bio: string;
     image: string;
     price: number;
     email: string;
-    seller: Profile;
+    seller: profile;
 }
 
-export type Shop = {
-    items: Item[];
-    addItem(item: Item): void;
-    delItem(index: number);
+export type shop = {
+    items: item[];
+    addItem(item: item): void;
+    delItem(index: number): void;
 }

@@ -23,7 +23,7 @@ html, body {
     cursor: pointer;
   }
   
-  h2, h3 {
+  h1, h2, h3 {
     padding: none;
     margin: 0;
     font-weight: lighter;

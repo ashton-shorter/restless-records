@@ -1,16 +1,16 @@
-export type Section = {
+export type section = {
     header: string;
     content: string;
 }
 
-export type Blog = {
+export type blog = {
     title: string;
-    sections: Section[];
+    sections: section[];
 }
 
-export type Blogs = {
-    blogs: Blog[];
-    addBlog(blog: Blog);
-    delBlog(index: number);
-    updateBlog(index: number, updatedBlog: Blog);
+export type blogs = {
+    blogs: blog[];
+    addBlog(blog: blog): void;
+    delBlog(index: number): void;
+    updateBlog(index: number, updatedBlog: blog): void;
 }

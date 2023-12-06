@@ -1,19 +1,24 @@
-import { Data } from "../../definititon";
+import { profile } from "../../definititon";
 
-export type Content = 'Image'|  'Video' | 'Song'
+export type content = 'image'|  'video' | 'song';
+export type socialType = 'facebook' | 'instagram' | 'twitter' | 'soundcloud' | 'website' | 'youtube';
 
-export type Media = {
+export type mediaInfo = {
+    index: number;
     dateCreated: Date;  // useful for listing new content
-    type: Content;
+    type: content;
     url: string;    // can be an image, song, or video
-    likes: Data;
+    isPlaying: boolean;
+    profile: profile;
+    // likes: Data;
 }
 
-export type SocialMedia = {
-    facebook?: string;
-    instagram?: string;
-    twitter?: string;
-    soundcloud?: string;
-    website?: string;
-    youtube?: string;
+export type media = {
+    info: mediaInfo;
+    playSong(url: string, profile: profile, mediaIndex: number): void;
+}
+
+export type socialMedia = {
+    type: socialType;
+    url: string;
 }

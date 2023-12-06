@@ -1,21 +1,21 @@
-import { Data, Profile } from '../../definititon';
+import { profile } from '../../definititon';
 
-export type BusinessType = 
+export type businessType = 
     // Talent
     'Artist' | 'Musician' | 'Performer' | 'Vendor' |
     // Staff
     'Bartender' | 'Security' | 'Stagehand';
 
-export type Business = {
-    profile: Profile;
-    views: Data;    // Type Data to provide analytics
-    type: BusinessType;
-    eventData: EventData;
-}
-
-export type EventData = {
+export type businessInfo = {
+    profile: profile;
+    // views: Data;    // Type Data to provide analytics
+    type: businessType;
     eventsWorked: number;
     upcomingEvents: string[];
-    addEvent(name: string);
-    delEvent(index: number);
+}
+
+export type business = {
+    info: businessInfo;
+    addEvent(name: string): void;
+    delEvent(index: number): void;
 }

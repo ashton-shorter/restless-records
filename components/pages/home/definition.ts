@@ -1,7 +1,13 @@
-import { Business, Event } from '../../definititon';
+import { eventInfo, profile } from '../../definititon';
 
-export type Home = {
-    nextEvent: Event;
-    monthlyMusician: Business;
-    featuredBusinesses: Business[];
+export type homeInfo = {
+    nextEvent: eventInfo;
+    monthlyMusician: profile;
+    featuredBusinesses: profile[];
+}
+
+export type home = {
+    info: homeInfo;
+    playSong(url: string, profile: profile, mediaIndex: number): void;
+    toggleProfile(profile?: profile): void;
 }

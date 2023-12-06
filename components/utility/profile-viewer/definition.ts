@@ -1,7 +1,14 @@
-import { Profile } from '../../definititon';
+import { profile } from '../../definititon';
 
-export type ProfileView = {
-    display: boolean;
-    profile: Profile;
-    toggleDisplay(): void;
+export type profileViewerInfo = {
+    profile: profile;
+    isPlaying: boolean;
+    mediaIndex: number;
+}
+
+export type profileViewer = {
+    info: profileViewerInfo;
+    setMediaIndex(index: number): void;
+    toggleProfile(profile?: profile): void;
+    playSong(url: string, profile: profile, mediaIndex: number): void;
 }

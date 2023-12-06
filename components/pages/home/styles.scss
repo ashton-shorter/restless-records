@@ -1,0 +1,63 @@
+@import '../../../styles/globals.scss';
+
+@mixin title {
+    background-color: black;
+    @include text;
+    letter-spacing: .5rem;
+    height: 75px;
+}
+
+body {
+    background: black;
+}
+
+.nextEvent {
+    @include text;
+    height: 75px;
+    width: 100vw;
+    background: black;
+    font-size: 55px;
+    text-align: center;
+    letter-spacing: .5rem;
+}
+
+.monthly {
+    padding-top: 50px;
+    height: 600px;
+    background: linear-gradient(to bottom, black 50%, rgb(255, 0, 86));
+    &__title {
+        @include title;
+        position: relative;
+        bottom: -10px;
+    }
+
+    &__record__container {
+        position: relative;
+        top: -20px;
+        right: 15px;
+        width: 100vw;
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.featured {
+    height: 590px;
+    background: linear-gradient(to top, black 50% , rgb(255, 0, 86) );
+    &__title {
+        @include title;
+        background: none;
+        // padding-top: 15px;
+        // padding-bottom: 50px;
+    }
+
+    &__container {
+        position: relative;
+        top: 5px;
+        left: -15px;
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

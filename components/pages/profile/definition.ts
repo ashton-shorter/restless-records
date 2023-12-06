@@ -1,10 +1,10 @@
-import { Media, SocialMedia } from "../../definititon";
+import { mediaInfo, socialMedia } from "../../definititon";
 
-export type Profile = {
+export type profile = {
     name: string;
     picture?: string;
     bio?: string;
-    media?: Media[]; 
-    socialMedia?: SocialMedia;
+    media?: mediaInfo[]; 
+    socialMedia?: socialMedia[];
     // cardBalance: number;    // gift card balance
 }

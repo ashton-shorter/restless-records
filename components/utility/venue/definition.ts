@@ -1,9 +1,9 @@
-import { Events, SocialMedia } from "../../definititon";
+import { events, socialMedia } from "../../definititon";
 
-export type Venue = {
+export type venue = {
     name: string;
     image: string;
     address: string;
-    events: Events;
-    socialMedia?: SocialMedia;
+    events: events;
+    socialMedia?: socialMedia;
 }

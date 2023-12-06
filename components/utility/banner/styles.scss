@@ -1,0 +1,65 @@
+@import '../../../styles/globals.scss';
+
+.container {
+    position: relative;
+    margin-top: 175px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    background: linear-gradient(to bottom, black, $pink);
+    padding-bottom: 10px;
+}
+
+.eyes {
+    position: relative;
+    font-family: 'Eyez';
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+}
+
+.motto {
+    position: relative;
+    font-family: 'Kontanter';
+    color: white;
+    z-index: 50;
+    @include textShadow;
+}
+
+.eyeball {
+    position: absolute;
+    top: 50%;
+    width: 160px; height: 80px;
+    padding: 20px;
+
+    border-radius: 0 0 12rem 12rem;
+
+    animation: blink 16s linear infinite alternate;
+    
+    background:
+        repeating-radial-gradient(yellow, cyan 3px, lime 4px, #858585 6px);
+    background-size: 100% 1%;
+    background-position: 100% 100%;
+}
+
+@keyframes blink {
+    0% {
+        background: 
+        linear-gradient(30deg, transparent 100%, rgba(0, 0, 0, 0.75) 40%) no-repeat 100% 0,
+        repeating-radial-gradient(yellow, cyan 3px, lime 4px, #858585 6px);
+        background-size: 100% 1%;
+        background-position: 100% 1%;
+    }
+
+    50% {
+        background: 
+        linear-gradient(30deg, transparent 100%, rgba(0, 0, 0, 0.75) 40%) no-repeat 100% 0,
+        repeating-radial-gradient(yellow, cyan 3px, lime 4px, #858585 6px);
+        background-size: 100% 10%;
+        background-position: 100% 1%;
+    }
+}

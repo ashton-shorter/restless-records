@@ -1,9 +1,9 @@
-import { Profile } from "../../definititon";
-import { BusinessType } from '../../definititon';
+import { profile } from "../../definititon";
+import { businessType } from '../../definititon';
 
-export type Event = {
-    artists: Profile[];
-    vendors: Profile[];
+export type eventInfo = {
+    musicians: profile[];
+    vendors: profile[];
 
     name: string;
     subTitle: string;
@@ -17,11 +17,17 @@ export type Event = {
 
     price: number;
     paymentUrl: string; // = "" ? done through me(stripe) : the client's url
-    hiring: BusinessType[];
+    hiring: businessType[];
 }
 
-export type Events = {
-    events: Event[];
+export type event = {
+    info: eventInfo;
+    toggleProfile(profile?: profile): void;
+}
+
+export type events = {
+    events: event[];
+    toggleProfile(profile?: profile): void;
     addEvent(event: Event): void;
     delEvent(index: number): void;
 }

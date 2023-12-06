@@ -1,11 +1,15 @@
-export type Data  = {
+export type dataInfo  = {
     total: number;
-    history: DataHistory[];
+    history: dataHistory[];
+}
+
+export type data = {
+    info: dataInfo;
     addData(month: string): void;
     delData(month: string): void;
 }
 
-export type MonthlyData = {
+export type monthlyData = {
     jan: number;
     feb: number;
     mar: number;
@@ -20,7 +24,7 @@ export type MonthlyData = {
     dec: number;
 }
 
-export type DataHistory = {
+export type dataHistory = {
     year: number;
-    monthlyData: MonthlyData;
+    monthlyData: monthlyData;
 }
