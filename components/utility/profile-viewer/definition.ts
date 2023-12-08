@@ -11,4 +11,6 @@ export type profileViewer = {
     setMediaIndex(index: number): void;
     toggleProfile(profile?: profile): void;
     playSong(url: string, profile: profile, mediaIndex: number): void;
+    addData(profile: profile, mediaIndex: number): void;
+    delData(profile: profile, mediaIndex: number): void;
 }

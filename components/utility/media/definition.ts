@@ -1,7 +1,7 @@
-import { profile } from "../../definititon";
+import { data, profile } from "../../definititon";
 
 export type content = 'image'|  'video' | 'song';
-export type socialType = 'facebook' | 'instagram' | 'twitter' | 'soundcloud' | 'website' | 'youtube';
+
 
 export type mediaInfo = {
     index: number;
@@ -9,16 +9,14 @@ export type mediaInfo = {
     type: content;
     url: string;    // can be an image, song, or video
     isPlaying: boolean;
-    profile: profile;
-    // likes: Data;
+    likes: data;
 }
 
 export type media = {
+    profile: profile;
     info: mediaInfo;
     playSong(url: string, profile: profile, mediaIndex: number): void;
-}
-
-export type socialMedia = {
-    type: socialType;
-    url: string;
+    // Adding/Deleting Likes
+    addData(profile: profile, mediaIndex: number): void;
+    delData(profile: profile, mediaIndex: number): void;
 }

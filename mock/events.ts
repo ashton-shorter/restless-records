@@ -1,10 +1,29 @@
-import { content, socialMedia, mediaInfo } from "../components/definititon";
+import { content, socialMedia, mediaInfo, monthlyData, data } from "../components/definititon";
 
-let date = new Date();
+const date = new Date();
+const year = date.getUTCFullYear();
+
 export const EVENTS = [
     {
         musicians: [
-            {name: "Nostalgic 90's"},
+            {
+                name: "Nostalgic 90's",
+                media: [
+                    {
+                        index: 0,
+                        dateCreated: date,
+                        type: 'song' as content,
+                        url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                        isPlaying: false,
+                        likes: {
+                            total: 0,
+                            history: [{
+                                year: year,
+                                monthlyData: {} as monthlyData
+                            }]
+                        } as data
+                    }
+                ] as mediaInfo[],},
             {
                 name: 'Boots the Cat',
                 picture: 'images/artist-logos/boots-the-cat.jpeg',
@@ -14,38 +33,182 @@ export const EVENTS = [
                         index: 0,
                         dateCreated: date,
                         type: 'song' as content,
-                        url: 'https://soundcloud.com/carwozab/boots-the-cat-vol-2',
+                        url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
                         isPlaying: false,
-                        profile: {name: 'Boots the Cat'}
+                        likes: {
+                            total: 0,
+                            history: [{
+                                year: year,
+                                monthlyData: {} as monthlyData
+                            }]
+                        } as data
                     }, {
                         index: 1,
                         dateCreated: date,
                         type: 'song' as content,
                         url: 'https://soundcloud.com/carwozab/boots-the-cat-vol-2',
                         isPlaying: false,
-                        profile: {name: 'Boots the Cat'}
+                        likes: {
+                            total: 0,
+                            history: [{
+                                year: year,
+                                monthlyData: {} as monthlyData
+                            }]
+                        } as data
                     }, 
                 ] as mediaInfo[],
                 socialMedia: [
                     {
                         type: 'facebook',
-                        url: 'https://facebook.com'
+                        url: 'https://soundcloud.com/carwozab'
+                    }, {
+                        type: 'instagram',
+                        url: 'https://soundcloud.com/carwozab'
+                    }, {
+                        type: 'twitter',
+                        url: 'https://soundcloud.com/carwozab'
                     }, {
                         type: 'soundcloud',
+                        url: 'https://soundcloud.com/carwozab'
+                    }, {
+                        type: 'website',
+                        url: 'https://soundcloud.com/carwozab'
+                    }, {
+                        type: 'youtube',
                         url: 'https://soundcloud.com/carwozab'
                     }, 
                 ] as socialMedia[]
             },
-            {name: 'Matty G'},
-            {name: 'Sound Elixir'},
-            {name: 'Death Market'},
-            {name: 'Alexandria'}
+            {name: 'Matty G', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: 'Sound Elixir', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: 'Death Market', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: 'Alexandria', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]}
         ],
         vendors: [
-            {name: "Molly's Mystical Creations"},
-            {name: 'Kitchn Sink'},
-            {name: "Hailey's Clothes"},
-            {name: 'Rise up sculptor'}
+            {name: "Molly's Mystical Creations", media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: 'Kitchn Sink', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: "Hailey's Clothes", media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]},
+            {name: 'Rise up sculptor', media: [
+                {
+                    index: 0,
+                    dateCreated: date,
+                    type: 'song' as content,
+                    url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
+                    isPlaying: false,
+                    likes: {
+                        total: 0,
+                        history: [{
+                            year: year,
+                            monthlyData: {} as monthlyData
+                        }]
+                    } as data
+                }
+            ] as mediaInfo[]}
         ],
         name: "Regenerate",
         subTitle: "Presented By The Young Degenerates",

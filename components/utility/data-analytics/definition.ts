@@ -1,27 +1,21 @@
-export type dataInfo  = {
+export type data  = {
     total: number;
     history: dataHistory[];
 }
 
-export type data = {
-    info: dataInfo;
-    addData(month: string): void;
-    delData(month: string): void;
-}
-
 export type monthlyData = {
-    jan: number;
-    feb: number;
-    mar: number;
-    apr: number;
+    january: number;
+    february: number;
+    march: number;
+    april: number;
     may: number;
-    jun: number;
-    jul: number;
-    aug: number;
-    sep: number;
-    oct: number;
-    nov: number;
-    dec: number;
+    june: number;
+    july: number;
+    august: number;
+    september: number;
+    october: number;
+    november: number;
+    december: number;
 }
 
 export type dataHistory = {

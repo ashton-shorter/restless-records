@@ -1,0 +1,18 @@
+.socialMedia__container {
+    width: 315px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.socialMedia__logo {
+    width: 40px; height: 40px;
+    filter: invert(180);
+
+    transition: all .3s;
+    &:hover {
+        cursor: pointer;
+        width: 44px; height: 44px;
+    }
+}

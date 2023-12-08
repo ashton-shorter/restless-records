@@ -1,0 +1,2 @@
+Make the featured artists scrollable you will be displaying a lot here
+Add a featured page describing what you get out of the subscribtion (btn redirects to here before checkout)

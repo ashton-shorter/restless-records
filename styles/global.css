@@ -1,6 +1,7 @@
 html, body {
     overflow-x: hidden;
     margin: 0;
+    padding-bottom: 50px;
   }
   
   ul {

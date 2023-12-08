@@ -4,17 +4,19 @@
     position: fixed;
     top: 23%;
     z-index: 500;
-    width: 50%; height: 600px;
+    width: 40%; height: 600px;
 
     color: white;
     background: rgba(0,0,0,.9);
-    border: 1px solid rgba(250, 1, 105, 0.39);
-    box-shadow: 0 0 1px $pink;
+    border: 1px solid white;
+    box-shadow: 0 0 1px white;
 
     display: flex;
     flex-direction: column;
     align-items: left;
     padding: 50px;
+    padding-top: 25px;
+    padding-left: 25px;
 
     &:hover {
         cursor: default;
@@ -45,69 +47,79 @@
 
     &__pic {
         position: relative;
-        left: 55px;
-        width: 30%;
-        height: 45%;
-        border: 1px solid white;
+        top: 25px;
+        left: 10px;
+        width: 295px; height: 295px;
         background-color: white;
         padding: 10px;
         object-fit: contain;
-
-        
     }
 
     &__name {
         @include text;
-        padding-top: 15px;
-        width: 45%;
+        position: relative;
+        top: 0;
+        width: 100%;
         text-align: center;
-        font-size: 35px;
+        font-size: 40px;
     }
 
     &__bio {
-        width: 45%;
         text-align: center;
-        padding-top: 15px;
+        font-size: 18px;
+
+        &__container {
+            width: 94%;
+            padding: 25px;
+            position: relative;
+            top: 10%;
+            left: 1.5%;
+        }
     }
 
     &__social__media {
+        width: 95%;
         display: flex;
-        width: 45%;
         justify-content: center;
-        gap: 15px;
-        padding-top: 25px;
-        
-        &__logo {
-            width: 40px; height: 40px;
-            filter: invert(180);
-
-            transition: all .3s;
-            &:hover {
-                cursor: pointer;
-                width: 44px; height: 44px;
-            }
-        }
+        position: absolute;
+        bottom: 25px;
     }
 
     &__media {
         position: absolute;
-        top: 70px;
-        right: 60px;
-        width: 45%; height: 450px;
+        top:95px;
+        right: 90px;
+        width: 315px; height: 315px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         &__stepper {
+            height: 50px;
+            width: 140%;
             position: absolute;
-            bottom: -75px;
             display: flex;
+            align-items: center;
+            justify-content: space-between;
             gap: 15px;
 
             &__btn {
-                width: 45px; height: 45px;
+                &:hover {
+                    cursor: pointer;
+                    color: $pink;
+                }
             }
         }
+    }
+
+    &__nextEvent {
+        @include btn;
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        height: 50px;
+        width: 200px;
+        font-size: 25px;
     }
 }
 

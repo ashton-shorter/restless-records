@@ -1,0 +1,70 @@
+@import '../../../styles/globals.scss';
+
+.community {
+    position: absolute;
+    top: 175px;
+    width: 100vw;
+    background: black;
+
+    padding: 35px;
+    padding-right: 0px;
+    padding-bottom: 200px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 75px;
+    row-gap: 150px;
+
+    &:hover {
+        cursor: default;
+    }
+}
+
+.business {
+    position: relative;
+    width: 400px;
+    height: 365px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__name {
+        @include text;
+        width: inherit;
+        height: 50px;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        border: 1px solid $pink;
+
+        margin-bottom: 25px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 30px;
+        letter-spacing: .2rem;
+
+        color: $pink;
+        text-shadow: none;
+
+        transition: all .5s;
+        
+        &:hover {
+            background: $pink;
+            color: black;
+            // @include textShadow;
+            cursor: pointer;
+        }
+    }
+
+    &__media {
+        position: relative;
+        height: 348px;
+        padding-left: 40px;
+    }
+}

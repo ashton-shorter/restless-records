@@ -1,17 +1,18 @@
+@import '../../../styles/globals.scss';
 //#region Animations
 @keyframes spinBorder {
     0% {
-        box-shadow: 0px 0px 10px rgb(255, 208, 1),
-                    0px 0px 50px rgb(255, 145, 1),
-                    0px -10px 10px rgb(255, 40, 2),
-                    -10px 0px 10px rgb(255, 0, 0);
+        box-shadow: 0px 0px 5px rgb(255, 208, 1),
+                    0px 0px 25px rgb(255, 145, 1),
+                    0px -5px 5px rgb(255, 40, 2),
+                    -5px 0px 5px rgb(255, 0, 0);
     }
 
     50% {
-        box-shadow: 0px 0px 10px rgb(255, 208, 1),
-                    0px 0px 50px rgb(255, 145, 1),
-                    0px 10px 10px rgb(255, 40, 2),
-                    10px 0px 10px rgb(255, 0, 0);
+        box-shadow: 0px 0px 5px rgb(255, 208, 1),
+                    0px 0px 25px rgb(255, 145, 1),
+                    0px 10px 5px rgb(255, 40, 2),
+                    5px 0px 5px rgb(255, 0, 0);
     }
 }
 
@@ -51,53 +52,35 @@
     }
 }
 
+.record__container {
+    position: absolute;
+    top: 0px;
+    width: 315px; height: 315px;
+}
+
 .record {
     z-index: 0;
     position: absolute;
-    top: 7%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 275px; height: 275px;
     padding: 20px;
 
     border-radius: 50%;
     border: 1px solid rgb(255, 196, 2);
     border-radius: 50%;
-    box-shadow: 0px 0px 10px rgb(255, 208, 1),
-                0px 0px 50px rgb(255, 145, 1),
-                0px -10px 10px rgb(255, 40, 2),
-                -10px 0px 10px rgb(255, 0, 0);
-
-    animation: spinBorder 5s linear infinite;
+    box-shadow: 0px 0px 5px rgb(255, 208, 1),
+                0px 0px 25px rgb(255, 145, 1),
+                0px -5px 5px rgb(255, 40, 2),
+                -5px 0px 5px rgb(255, 0, 0);
     
     background: 
         linear-gradient(30deg, transparent 40%, rgba(0, 0, 0, 0.75) 40%) no-repeat 100% 0,
         linear-gradient(60deg, rgba(0, 0, 0, 0.75) 60%, transparent 60%) no-repeat 0 100%,
         repeating-radial-gradient(#000000, #000000 4px, #ffffff 5px, #858585 6px);
     background-size: 50% 100%, 100% 50%, 100% 100%;
-}
-
-.play {
-    position: absolute;
-    top: 35%;
-    z-index: 5;
-    transform: scale(4);
-
-    color: white;
-    
-    transition: all .5s;
-    &:hover {
-        transition: all .5s;
-        cursor: pointer;
-        color:rgba(255, 255, 255, 0.55);
-    }
-
-    &__container {
-        z-index: 5;
-        position: relative;
-        width: 340px; height: 340px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 #rotate {

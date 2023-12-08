@@ -3,6 +3,11 @@ import './styles.scss';
 import Record from '../record/Record';
 // Types
 import { media } from './definition';
+// Mui Icons
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function Media(props: media) {
     const info = props.info;
@@ -10,24 +15,31 @@ function Media(props: media) {
         switch(info.type) {
             case 'image':
                 return (
-                    <>
-                        <img src={info.url} />
-                    </>
+                    <img className='media__image' src={info.url} />
                 )
             case 'song':
+                let songName = info.url;
+                songName = songName.substring(songName.lastIndexOf('/') + 1);
+                songName = songName.toUpperCase();
                 const recordProps = {
-                    info: {
-                        url: info.url,
-                        isPlaying: info.isPlaying, 
-                        profile: info.profile,
-                        mediaIndex: info.index,
-                        cover: false,
-                    },
-                    playSong: props.playSong
+                    url: info.url,
+                    isPlaying: info.isPlaying, 
+                    profile: props.profile,
+                    mediaIndex: info.index,
+                    cover: false,
                 }
                 return (
                     <>
+                        <div className='play__container'>
+                            {
+                                !info.isPlaying ? (
+                                    <PlayArrowIcon style={{transition: 'all .3s'}}fontSize='large' className='play' onClick={() => props.playSong(info.url, props.profile, info.index)} />
+                                ) : <PauseIcon fontSize='large' className='play' onClick={() => props.playSong('', props.profile, info.index)} />
+                            }
+                            
+                        </div>
                         <Record {...recordProps} />
+                        <h1 className='songName'>{songName}</h1>
                     </>
                 )
             case 'video':
@@ -42,7 +54,10 @@ function Media(props: media) {
     return (
         <>
             {displayMedia()}
-            {/* <img src='images/utility/full-heart.png'>{info.likes.total}</img> */}
+            <div className='likes'>
+                <FavoriteIcon fontSize='large' className='likes__heart' onClick={() => props.addData(props.profile, info.index)} />
+                <p className='likes__total'>{info.likes.total}</p>
+            </div>
         </>
     )
 }

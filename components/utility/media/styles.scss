@@ -1,0 +1,73 @@
+@import '../../../styles/globals.scss';
+.songName {
+    @include text;
+    position: absolute;
+    bottom:-50px;
+    left: -15px;
+
+    width: 110%;
+
+    font-size: 25px;
+    letter-spacing: .5rem;
+    text-align: center;
+
+    // border: 1px solid green;
+}
+
+
+.play {
+    z-index: 5;
+    transform: scale(3.5);
+
+    color: white;
+
+    &:hover {
+        transition: all .5s;
+        cursor: pointer;
+        color: $pink;
+    }
+
+    &__container {
+        z-index: 5;
+        position: relative;
+        width: 315px; height: 315px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.media__image {
+    width: 315px;
+    height: 315px;
+    object-fit: contain;
+    background: white;
+}
+
+.likes {
+    width: 315px;
+    // border: 1px solid green;
+    z-index: 50;
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    &__heart {
+        color: $pink;
+
+        transition: all .5s;
+        &:hover {
+            transition: all .5s;
+            cursor: pointer;
+            color: rgb(255, 145, 1);
+        }
+    }
+    &__total {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+}

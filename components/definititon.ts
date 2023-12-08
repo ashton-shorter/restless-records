@@ -1,8 +1,9 @@
 // Profile
-export * from './utility/businesses/definition';
+export * from './pages/community/definition';
 export * from './pages/profile/definition';
 export * from './utility/media/definition';
 export * from './utility/profile-viewer/definition';
+export * from './utility/social-media/definition';
 // Events & Venues
 export * from './pages/events/definition';
 export * from './utility/venue/definition';

@@ -10,8 +10,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function Header() {
     const headerItems = [
         "/",
-        "talent",
-        "staff",
+        "community",
         "events",
         "rental",
         "merch",
@@ -19,14 +18,9 @@ function Header() {
         "profile"
     ];
 
-    const currentPage = useLocation().pathname; // get current path, what page is this?
-
-    const GetStyles = (page: string): string => { // Highlight styling on current page name
-        if(currentPage == page) {   // Are we currently on the page being checked?
-            return 'rgb(255, 220, 88)'; // Fill in text for visual aid
-        }
-
-        return '';  // Otherwise do nothing
+    let currentPage = useLocation().pathname; // get current path, what page is this?
+    if(currentPage != '/') {    // Get the name of the current page so we don't display it
+        currentPage = currentPage.substring(currentPage.indexOf('/') + 1);
     }
 
     const handleLogin = () => {
@@ -39,8 +33,9 @@ function Header() {
 
             <ul className='header__menu'>
                 {headerItems.map((item, i) => (
-                    item == '/' ? // Ensure the home page is listed as "Home" not, "/"
-                        <Link key={i} to={item}  style={{textDecoration: 'none', color: GetStyles('/')}}>
+                    item == currentPage ? null  // Dont display the current page, we're already on it
+                    : item == '/' ? // Ensure the home page is listed as "Home" not, "/"
+                        <Link key={i} to={item}  style={{textDecoration: 'none'}}>
                             <li className='header__menu__item'>Home</li>
                         </Link>
                     : item == 'profile' ?
@@ -52,7 +47,7 @@ function Header() {
                             />
                         </Link>
                     :
-                        <Link key={i} to={item}  style={{textDecoration: 'none', color: GetStyles(item)}}>
+                        <Link key={i} to={item}  style={{textDecoration: 'none'}}>
                             <li className='header__menu__item'>{item}</li>
                         </Link>
                 ))}

@@ -1,5 +1,6 @@
-import { content, mediaInfo, profile, socialMedia } from '../components/definititon';
+import { content, data, mediaInfo, monthlyData, profile, socialMedia } from '../components/definititon';
 const date = new Date();
+const year = date.getUTCFullYear();
 export const FEATURED_BUSINESSES: profile[] = [
     {
         name: 'Boots the Cat',
@@ -12,15 +13,33 @@ export const FEATURED_BUSINESSES: profile[] = [
                 type: 'song' as content,
                 url: 'https://soundcloud.com/carwozab/boots-the-cat-vol-2',
                 isPlaying: false,
-                profile: {name: 'Boots the Cat'}
+                likes: {
+                    total: 0,
+                    history: [{
+                        year: year,
+                        monthlyData: {} as monthlyData
+                    }]
+                } as data
             } 
         ] as mediaInfo[],
         socialMedia: [
             {
                 type: 'facebook',
-                url: 'https://facebook.com'
+                url: 'https://soundcloud.com/carwozab'
+            }, {
+                type: 'instagram',
+                url: 'https://soundcloud.com/carwozab'
+            }, {
+                type: 'twitter',
+                url: 'https://soundcloud.com/carwozab'
             }, {
                 type: 'soundcloud',
+                url: 'https://soundcloud.com/carwozab'
+            }, {
+                type: 'website',
+                url: 'https://soundcloud.com/carwozab'
+            }, {
+                type: 'youtube',
                 url: 'https://soundcloud.com/carwozab'
             }, 
         ] as socialMedia[]
@@ -36,7 +55,13 @@ export const FEATURED_BUSINESSES: profile[] = [
                 type: 'song' as content,
                 url: 'https://soundcloud.com/user-475831211/burning-man-2022',
                 isPlaying: false,
-                profile: {name: 'Trippy Hippy'}
+                likes: {
+                    total: 0,
+                    history: [{
+                        year: year,
+                        monthlyData: {} as monthlyData
+                    }]
+                } as data
             } 
         ] as mediaInfo[],
         socialMedia: [
@@ -60,7 +85,13 @@ export const FEATURED_BUSINESSES: profile[] = [
                 type: 'song' as content,
                 url: 'https://soundcloud.com/eyesleepy/acidtv002-mp3',
                 isPlaying: false,
-                profile: {name: 'Sleepy Eyes'}
+                likes: {
+                    total: 0,
+                    history: [{
+                        year: year,
+                        monthlyData: {} as monthlyData
+                    }]
+                } as data
             } 
         ] as mediaInfo[],
         socialMedia: [

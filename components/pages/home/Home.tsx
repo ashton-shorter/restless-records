@@ -23,14 +23,11 @@ function Home(props: home) {
         }
         //#endregion Turnary Media Handling
         return {
-            info: {
-                url: mediaUrl,
-                isPlaying: mediaPlaying,
-                profile: profile,
-                mediaIndex: 0,
-                cover: true,
-            },
-            playSong: props.playSong
+            url: mediaUrl,
+            isPlaying: mediaPlaying,
+            profile: profile,
+            mediaIndex: 0,
+            cover: true
         }
     }
 
@@ -39,6 +36,11 @@ function Home(props: home) {
         toggleProfile: props.toggleProfile
     }
     //#endregion Props
+    
+    const subscribe = () => {
+
+    }
+    
     return (
         <>
             <Banner />
@@ -56,10 +58,15 @@ function Home(props: home) {
                 <h1 className='featured__title'>Featured Artists</h1>
                 <div className='featured__container'>
                     {
-                        info.featuredBusinesses.map(business => (
-                            <Record {...getRecordProps(business)} />
+                        info.featuredBusinesses.map((business, i) => (
+                            <div key={i}>
+                                <Record {...getRecordProps(business)} />
+                            </div>
                         ))
                     }
+                </div>
+                <div className='featured__btn__container'>
+                    <button onClick={() => subscribe()}className='featured__btn'>Feature your Business</button>
                 </div>
             </div>
         </>
