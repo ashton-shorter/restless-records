@@ -1,9 +1,11 @@
-import { content, socialMedia, mediaInfo, monthlyData, data, businessType } from "../components/definititon";
+import { content, socialMedia, mediaInfo, monthlyData, data, businessType, businessInfo } from "../components/definititon";
 
 const date = new Date();
 const year = date.getUTCFullYear();
 
-export const BUSINESSES = [
+const oldDate = new Date('July 1, 1999, 12:00:00');
+
+export const BUSINESSES: businessInfo[] = [
     {
         profile: {
             name: "Nostalgic 90's",
@@ -43,7 +45,7 @@ export const BUSINESSES = [
             media: [
                 {
                     index: 0,
-                    dateCreated: date,
+                    dateCreated: oldDate,
                     type: 'song' as content,
                     url: 'https://soundcloud.com/carwozab/sets/boots-the-cat-3-0',
                     isPlaying: false,
@@ -56,7 +58,7 @@ export const BUSINESSES = [
                     } as data
                 }, {
                     index: 1,
-                    dateCreated: date,
+                    dateCreated: oldDate,
                     type: 'song' as content,
                     url: 'https://soundcloud.com/carwozab/boots-the-cat-vol-2',
                     isPlaying: false,

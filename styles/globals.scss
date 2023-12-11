@@ -3,6 +3,8 @@ $lightPink: rgb(245, 105, 135);
 $pinkish: rgb(205, 62, 224);
 $purple: rgb(102, 3, 122);
 
+$headerHeight: 96px;
+
 @font-face {
     font-family: "Circusant";
     src: local("Circusant"), url(../src/fonts/Circusant.TTF);
@@ -21,6 +23,11 @@ $purple: rgb(102, 3, 122);
 @font-face {
     font-family: "Kontanter";
     src: local("Kontanter"), url(../src/fonts/Kontanter.TTF);
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url(../src/fonts/Poppins.ttf);
 }
 
 @font-face {
@@ -67,7 +74,7 @@ $purple: rgb(102, 3, 122);
         background:black;
         
         border: 1px solid $pink;
-        box-shadow: 0px 0px 3px $pink, 0px 0px 11px $pink;
+        box-shadow: 0px 0px 1px $pink, 0px 0px 5px $pink;
     }
 }
 
@@ -86,16 +93,15 @@ $purple: rgb(102, 3, 122);
     background:black;
     
     border: 1px solid $pink;
-    box-shadow: 0px 0px 3px $pink, 0px 0px 11px $pink;
+    box-shadow: 0px 0px 1px $pink, 0px 0px 5px $pink;
 
     transition: all .5s;
 
     &:hover {
         transition: all .5s;
 
-        text-shadow: 0px 0px 0px white, 0px 0px 5px rgb(255, 102, 0), 0px 0px 5px rgb(98, 0, 255), 0px 0px 15px rgb(255, 255, 255, .3);
-
         color: black;
+        text-shadow: none;
         background: white;
 
         border: 1px solid white;
@@ -111,6 +117,8 @@ $purple: rgb(102, 3, 122);
     color: $pink;
     border: 1px solid white;
     box-shadow: 0px 2px 2px white;
+
+    border-radius: 5px;
   
     // font-family: "Downcome";
     font-size: 35px;
@@ -124,6 +132,7 @@ $purple: rgb(102, 3, 122);
         box-shadow: none;
         border-bottom: 1px solid $pink;
         background: black;
+        border-radius: 0px;
     }
 
     &::placeholder {

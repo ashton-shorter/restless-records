@@ -21,19 +21,21 @@ export type business = {
 }
 
 export type communityInfo = {
-    businesses: businessInfo[];
-    filters: businessType[];
+    filteredBusinesses: businessInfo[];
+    allFilters: businessType[];
+    activeFilters: businessType[];
+    currentSearch: string;
     sortBy: sort;
 }
 
 export type community = {
     info: communityInfo;
     playSong(url: string, profile: profile, mediaIndex: number): void;
-    //setMediaIndex(profile: profile, index: number): void;
     toggleProfile(profile?: profile): void;
     // Adding Likes and Views
     addData(profile: profile, mediaIndex: number): void;
     delData(profile: profile, mediaIndex: number): void;
+    updateFilteredBusinesses(phrase?: string, updatedFilters?: businessType[], updatedSort?: sort): void;
 }
 
-export type sort = 'likes' | 'newest' | 'oldest';
+export type sort = '' | 'likes' | 'newest' | 'oldest';

@@ -2,69 +2,150 @@
 
 .community {
     position: absolute;
-    top: 175px;
+    top: calc($headerHeight + 95px);
     width: 100vw;
-    background: black;
 
     padding: 35px;
-    padding-right: 0px;
-    padding-bottom: 200px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 75px;
-    row-gap: 150px;
+    padding-bottom: 215px;
 
     &:hover {
         cursor: default;
     }
 }
 
-.business {
+.community__businesses {
     position: relative;
-    width: 400px;
-    height: 365px;
-
+    top: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 75px;
+    row-gap: 150px;
 
-    &__name {
-        @include text;
-        width: inherit;
-        height: 50px;
-
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        border: 1px solid $pink;
-
-        margin-bottom: 25px;
+    &__business {
+        position: relative;
+        width: 400px;
+        height: 365px;
 
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
 
-        font-size: 30px;
-        letter-spacing: .2rem;
+        &__name {
+            @include text;
+            width: inherit;
+            height: 50px;
 
-        color: $pink;
-        text-shadow: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
 
-        transition: all .5s;
-        
-        &:hover {
-            background: $pink;
-            color: black;
-            // @include textShadow;
-            cursor: pointer;
+            border: 1px solid $pink;
+
+            margin-bottom: 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+            letter-spacing: .2rem;
+
+            color: $pink;
+            text-shadow: none;
+
+            transition: all .5s;
+            
+            &:hover {
+                background: $pink;
+                color: black;
+                // @include textShadow;
+                cursor: pointer;
+            }
+        }
+
+        &__media {
+            position: relative;
+            height: 348px;
+            padding-left: 40px;
+        }
+    }
+}
+
+.community__header {
+    z-index: 500;
+    position: fixed;
+    top: $headerHeight;
+    left: 0;
+    width: 100vw;
+    background: black;
+    box-shadow: 0 0 10px black;
+
+    &__filter {
+        @include btn;
+        box-shadow: none;
+        width: 150px; height: 40px;
+        font-size: 20px;
+        letter-spacing: .3rem;
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            height: 55px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+
+        &__options{
+            display: flex;
+            gap: 15px;
+        }
+
+        &__active {
+            @include btnInvert;
+            width: 150px; height: 40px;
+            font-size: 20px;
+            letter-spacing: .3rem;
+        }
+
+        &__sort {
+            @include btn;
+            box-shadow: none;
+            width: 150px; height: 40px;
+            font-size: 20px;
+            letter-spacing: .3rem;
+            &__options {
+                display: flex;
+                gap: 15px;
+            }
+
+            &__active {
+                @include btnInvert;
+                width: 150px; height: 40px;
+                font-size: 20px;
+                letter-spacing: .3rem;
+            }
         }
     }
 
-    &__media {
-        position: relative;
-        height: 348px;
-        padding-left: 40px;
+    &__search {
+        @include input;
+        height: 40px; width: 400px;
+        padding: 0px;
+        padding-left: 5px;
+        font-size: 25px;
+        font-family: "Poppins";
+        font-style: italic;
+        text-align: left;
+       
+        
+        &__container {
+            height: 60px; 
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            position: relative;
+            left: 10px;
+        }
     }
 }

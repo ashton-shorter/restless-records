@@ -1,7 +1,6 @@
 import './styles.scss';
-
 // Types
-import { community } from './definition';
+import { businessType, community, sort } from './definition';
 // Components
 import Media from '../../utility/media/Media';
 
@@ -11,63 +10,84 @@ import Media from '../../utility/media/Media';
 // Then they will be listed in the filtered search, and on their profile
 function Community(props: community) {
     const info = props.info;
-    
+    const sortOptions = ['likes', 'newest', 'oldest'];
 
-    const displayBusinesses = () => {
-        let businesses = [...info.businesses];
-        if(info.filters.length > 0) {   // Are there any active filters?
-            // Exclude any businesses that dont match the filters
-            businesses.forEach((business, i) => {
-                const filterMatch = business.types.filter(match => info.filters.includes(match));
-                if(!filterMatch) {
-                    console.log("Filter did not match, excluding: " + business.profile.name)
-                    businesses.splice(i, 1);
-                }
-            })
+    // Reflect active filters and sorting in styles
+    const getFilterStyles = (filter: businessType) => {
+        let styles = 'community__header__filter';
+
+        if(info.activeFilters.includes(filter)) {
+            styles = 'community__header__filter__active'
         }
 
-        // Properly sort the businesses to display
-        switch(info.sortBy) {
-            case 'likes': {
-                businesses = businesses.sort((a, b) =>
-                a.profile.media[a.profile.media.length-1].likes.total
-                - b.profile.media[b.profile.media.length-1].likes.total).reverse();
-                break;
-            }
-            case 'newest': {
-                businesses = businesses.sort((a, b) => a.profile.media[0].dateCreated.getTime() - b.profile.media[0].dateCreated.getTime()).reverse();
-                break;
-            }
-            case 'oldest': {
-                businesses = businesses.sort((a, b) => a.profile.media[0].dateCreated.getTime() - b.profile.media[0].dateCreated.getTime());
-                break;
-            }
+        return styles;
+    }
+
+    const getSortStyles = (sort: sort) => {
+        let styles = 'community__header__filter__sort';
+
+        if(info.sortBy == sort) {
+            styles = 'community__header__filter__sort__active'
         }
 
-        return businesses;
+        return styles;
     }
 
     return (
         <div className='community'>
-            {
-                displayBusinesses().map((business, i) => (
-                    
-                    <div className='business' key={i}>
-                        <h1 className='business__name' onClick={() =>  props.toggleProfile(business.profile)}>{business.profile.name}</h1>
-                        <div className='business__media'>
-                            <Media {
-                                ...{
-                                    profile: business.profile,
-                                    info: {...business.profile.media[business.profile.media.length -1]},
-                                    playSong: props.playSong,
-                                    addData: props.addData,
-                                    delData: props.delData
-                                }
-                            } />
-                        </div>
+            <div className='community__header'>
+                <div className='community__header__search__container'>
+                    <input className='community__header__search' onChange={(e) => props.updateFilteredBusinesses(e.target.value, undefined, undefined)} placeholder='Search...' />
+                </div>
+
+                <div className='community__header__filter__container'>
+                    <div className='community__header__filter__options'>
+                    {
+                        info.allFilters.map((filter, i) => (
+                            <button
+                                key={i}
+                                onClick={() => props.updateFilteredBusinesses(undefined, [...info.activeFilters, filter as businessType], undefined)}
+                                className={getFilterStyles(filter)}
+                            >{filter}</button>
+                        ))
+                    }
                     </div>
-                ))
-            }
+
+                    <div className='community__header__filter__sort__options'>
+                        {
+                            sortOptions.map((sort, i) => (
+                                <button
+                                key={i}
+                                    onClick={() => props.updateFilteredBusinesses(undefined, undefined, sort as sort)}
+                                    className={getSortStyles(sort as sort)}
+                                >{sort}</button>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div className='community__businesses'>
+                {
+                    info.filteredBusinesses.map((business, i) => (
+                        
+                        <div className='community__businesses__business' key={i}>
+                            <h1 className='community__businesses__business__name' onClick={() =>  props.toggleProfile(business.profile)}>{business.profile.name}</h1>
+                            <div className='community__businesses__business__media'>
+                                <Media {
+                                    ...{
+                                        profile: business.profile,
+                                        info: {...business.profile.media[business.profile.media.length -1]},
+                                        playSong: props.playSong,
+                                        addData: props.addData,
+                                        delData: props.delData
+                                    }
+                                } />
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 }

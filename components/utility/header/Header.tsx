@@ -9,13 +9,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Header() {
     const headerItems = [
-        "/",
         "community",
         "events",
         "rental",
         "merch",
         "blog",
-        "profile"
     ];
 
     let currentPage = useLocation().pathname; // get current path, what page is this?
@@ -29,29 +27,25 @@ function Header() {
 
     return (
         <div className='header'>
-            <h1 className='header__title'>Restless Records</h1>
+            <Link to={'/'} style={{color: 'inherit', textDecoration: 'inherit'}}><h1 className='header__title'>Restless Records</h1></Link>
 
             <ul className='header__menu'>
                 {headerItems.map((item, i) => (
                     item == currentPage ? null  // Dont display the current page, we're already on it
-                    : item == '/' ? // Ensure the home page is listed as "Home" not, "/"
-                        <Link key={i} to={item}  style={{textDecoration: 'none'}}>
-                            <li className='header__menu__item'>Home</li>
-                        </Link>
-                    : item == 'profile' ?
-                        <Link key={i} to={item}  style={{textDecoration: 'none'}}>
-                            <AccountCircleIcon
-                                className='header__menu__item'
-                                onClick={() => handleLogin()}
-                                sx={{fontSize: '3.5vw', color: 'white', position: 'relative', height: '70px', top: '6px', transition: 'all .5s'}}
-                            />
-                        </Link>
                     :
                         <Link key={i} to={item}  style={{textDecoration: 'none'}}>
                             <li className='header__menu__item'>{item}</li>
                         </Link>
                 ))}
             </ul>
+
+            <Link to={'profile'}  style={{textDecoration: 'none', position: 'absolute', right: '0px'}}>
+                <AccountCircleIcon
+                    className='header__menu__item'
+                    onClick={() => handleLogin()}
+                    sx={{fontSize: '3.5vw', color: 'white', position: 'relative', height: '70px', top: '13px', right: '22px', transition: 'all .5s'}}
+                />
+            </Link>
 
             {/* <Login {...props.loginManager} /> */}
         </div>

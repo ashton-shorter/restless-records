@@ -8,7 +8,7 @@ import ProfileViewer from '../components/utility/profile-viewer/ProfileViewer';
 import Home from '../components/pages/home/Home';
 import Community from '../components/pages/community/Community';
 // Types
-import { profile, profileViewerInfo, eventInfo, homeInfo, communityInfo, data, monthlyData } from '../components/definititon';
+import { profile, profileViewerInfo, eventInfo, homeInfo, communityInfo, data, monthlyData, businessType, sort, businessInfo } from '../components/definititon';
 // Mock
 import {EVENTS} from '../mock/events';
 import {FEATURED_BUSINESSES} from '../mock/featuredBusinesses';
@@ -20,6 +20,7 @@ import ReactPlayer from "react-player";
 type app = {
   home: homeInfo;
   community: communityInfo;
+  businesses: businessInfo[];
   events: eventInfo[];
   profiles: profile[];
   profileViewer: profileViewerInfo;
@@ -31,6 +32,10 @@ function App() {
   let date = new Date();
   //const curMonth = date.toLocaleString('default', { month: 'long'}).toLowerCase();
   const year = date.getUTCFullYear();
+
+  const sortedBusinesses = [...BUSINESSES].sort((a, b) =>
+  a.profile.media[a.profile.media.length-1].likes.total
+  - b.profile.media[b.profile.media.length-1].likes.total).reverse();
   
   const [appState, setAppState] = useState<app>({
     home: {
@@ -81,10 +86,13 @@ function App() {
       featuredBusinesses: [...FEATURED_BUSINESSES] 
     },
     community: {
-      businesses: [...BUSINESSES],
-      filters: [],
+      filteredBusinesses: [...sortedBusinesses],
+      allFilters: ['artist', 'musician', 'performer', 'vendor', 'bartender', 'security', 'stagehand'],
+      activeFilters: [],
+      currentSearch: '',
       sortBy: 'likes'
     },
+    businesses: [...BUSINESSES],
     events: [...EVENTS],
     profiles: [...FEATURED_BUSINESSES],
     profileViewer: {
@@ -103,7 +111,7 @@ function App() {
 
     // Correctly associate the profile with the database as to update all references of it
     if(profile) {
-      appState.community.businesses.forEach(business => {
+      appState.businesses.forEach(business => {
         if(business.profile.name == profile.name) {
           targetProfile = {...business.profile}
         }
@@ -208,7 +216,7 @@ function App() {
   //#region Likes & Views
   const addData = (profile: profile, mediaIndex: number) => {
     console.log("Liking media: " + mediaIndex + " for: " + profile.name);
-    let updatedBusinesses = [...appState.community.businesses];
+    let updatedBusinesses = [...appState.businesses];
     updatedBusinesses.forEach(business => {
       if(business.profile.name == profile.name) {
         console.log("match found: " + business.profile.name);
@@ -218,16 +226,13 @@ function App() {
 
     setAppState({
       ...appState,
-      community: {
-        ...appState.community,
         businesses: updatedBusinesses
-      }
     })
   }
 
   const delData = (profile: profile, mediaIndex: number) => {
     console.log("UnLiking media: " + mediaIndex + " for: " + profile.name);
-    let updatedBusinesses = [...appState.community.businesses];
+    let updatedBusinesses = [...appState.businesses];
     updatedBusinesses.forEach(business => {
       if(business.profile.name == profile.name) {
         console.log("match found: " + business.profile.name);
@@ -237,17 +242,104 @@ function App() {
 
     setAppState({
       ...appState,
-      community: {
-        ...appState.community,
         businesses: updatedBusinesses
-      }
     })
   }
   //#endregion Likes & Views
 
+  //#region Community
+  const filterBy = (updatedFilters: businessType[], foundBusinesses: businessInfo[]) => {
+    // Add any business that matches the active filters
+    let filteredBusinesses: businessInfo[] = [];
+    
+    foundBusinesses.forEach(business => {
+      const filterMatch = business.types.filter(match => updatedFilters.includes(match)); // Do any business types match the active filters?
+      if(filterMatch.length > 0) {  // If so,
+        filteredBusinesses.push(business);   // Add it
+      }
+    })
+
+    return filteredBusinesses;
+  };
+
+  const getFilters = (updatedFilters: businessType[]) => {
+    if(updatedFilters.length > 0) {  // Ensure there are filters active
+      updatedFilters.forEach(filter => { // Take a look at each filter
+        if(updatedFilters.filter(match => match === filter).length > 1) { // Does any filter occur more than once?
+          updatedFilters = updatedFilters.filter(match => match !== filter) // Return a new filter array excluding the duplicate filter
+        }
+      })
+    }
+
+    return updatedFilters;
+  }
+  
+  const sortBusinesses = (updatedSort: sort, filteredBusinesses: businessInfo[]) => {
+    let sortedBusinesses: businessInfo[] = [];
+    if(updatedSort === 'likes') {
+      sortedBusinesses = filteredBusinesses.sort((a, b) =>
+        a.profile.media[a.profile.media.length-1].likes.total
+        - b.profile.media[b.profile.media.length-1].likes.total).reverse();
+    }
+
+    if(updatedSort === 'newest')  {
+      sortedBusinesses = filteredBusinesses.sort((a, b) => a.profile.media[0].dateCreated.getTime() - b.profile.media[0].dateCreated.getTime()).reverse();
+    }
+
+    if(updatedSort === 'oldest')  {
+      sortedBusinesses = filteredBusinesses.sort((a, b) => a.profile.media[0].dateCreated.getTime() - b.profile.media[0].dateCreated.getTime());
+    }
+
+    return sortedBusinesses;
+  };
+
+  const searchFor = (phrase: string) => {
+    let foundBusinesses: businessInfo[] = [];
+    appState.businesses.forEach(business => {
+      // Compare each business name to the search phrase
+      const match = business.profile.name.toLowerCase().includes(phrase.toLowerCase());
+      if(match) { // if it matches send it through
+          foundBusinesses.push(business);
+      }
+    })
+    
+    return foundBusinesses;
+  }
+
+  const updateFilteredBusinesses = (phrase?: string, updatedFilters?: businessType[], updatedSort?: sort) => {
+    // Compare all filtered arrays and return one new array
+    // Starting with searchResults, then filters, then sort for efficiency's sake
+    const currentSearch = phrase ? phrase : '';
+    let activeFilters = updatedFilters ? updatedFilters : appState.community.activeFilters;
+    const sortBy = updatedSort ? updatedSort : appState.community.sortBy;
+
+    // Search for any phrase currently in our search bar
+    let foundBusinesses: businessInfo[] = currentSearch != '' ? searchFor(currentSearch) : [...appState.businesses];
+
+    // Filter it
+    activeFilters = getFilters(activeFilters);  // Get our filters(handle toggling)
+    // if there are no filters make sure we display everything, otherwise, filter it
+    let filteredBusinesses: businessInfo[] = activeFilters.length > 0 ? filterBy(activeFilters, foundBusinesses) : [...foundBusinesses];
+    
+    // Now sort it
+    let sortedBusinesses: businessInfo[] = sortBusinesses(sortBy, filteredBusinesses);
+
+    setAppState({
+      ...appState,
+      community: {
+        ...appState.community,
+        filteredBusinesses: sortedBusinesses,
+        activeFilters: activeFilters,
+        currentSearch: currentSearch,
+        sortBy: sortBy
+      }
+    })
+  }
+  //#endregion Community
+
   //#region Props
   const homeProps = {info:{...appState.home}, playSong, toggleProfile};
-  const communityProps = {info: {...appState.community}, playSong, toggleProfile, addData, delData};
+  const communityProps = {info: {...appState.community}, playSong, toggleProfile, addData, delData, updateFilteredBusinesses};
   // const eventsProps = {};
   // const rentalProps = {};
   // const merchProps = {};

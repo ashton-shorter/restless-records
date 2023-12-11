@@ -2,14 +2,18 @@
 .songName {
     @include text;
     position: absolute;
-    bottom:-50px;
+    bottom:60px;
     left: -15px;
 
     width: 110%;
 
     font-size: 25px;
-    letter-spacing: .5rem;
+    letter-spacing: .3rem;
     text-align: center;
+
+    color: $pink;
+    text-shadow: none;
+    background: black;
 
     // border: 1px solid green;
 }
@@ -49,11 +53,11 @@
     // border: 1px solid green;
     z-index: 50;
     position: absolute;
-    bottom: 30px;
+    bottom: -55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+
     gap: 5px;
     &__heart {
         color: $pink;

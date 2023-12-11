@@ -1,1 +1,3 @@
 Make a song queue
+Login with soundcloud and autoload all songs into media.
+Liking songs should also like them on soundcloud
