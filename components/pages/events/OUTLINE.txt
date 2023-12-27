@@ -3,3 +3,4 @@ User can view talent via popups on click
 can filter by
     venue
     hiring
+    age restriction

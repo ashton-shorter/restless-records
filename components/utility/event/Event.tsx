@@ -29,34 +29,49 @@ function Event(props: event) {
 
     return (
         <div className='event'>
+            <img className='event__image' src={info.image} />
             <div className='event__overlay' />
             <div className='event__header'>
                 <h1 className='event__header__title'>{info.name}</h1>
-                <p className='event__header__subTitle'>{info.subTitle}</p>
+                <p className='event__header__subTitle'>Presented By {info.company}</p>
             </div>
 
             <div className='event__grid__titles'>
+                    {/* <div className='event__grid__titles__title' style={{display: 'flex', gap: '52px', justifyContent: 'start', alignItems: 'center'}}>
+                        <h2>Musicians</h2>
+                        { info.hiring.includes("musician") ? <button className='event__hiring' onClick={() => {}}>Hiring</button> : null }
+                    </div>
+                    <div className='event__grid__titles__title' style={{display: 'flex', gap: '50px', justifyContent: 'center', alignItems: 'center'}}>
+                        <h2>Vendors</h2>
+                        { info.hiring.includes("vendor") ? <button className='event__hiring' onClick={() => {}}>Hiring</button> : null }
+                    </div> */}
                     <h2 className='event__grid__titles__title'>Musicians</h2>
-                    <h2 className='event__grid__titles__title'>Vendors</h2>
+                    {info.vendors.length > 0 ? <h2 className='event__grid__titles__title'>Vendors</h2> : null}
                     <h2 className='event__grid__titles__title'>Details</h2>
             </div>
 
             <div className='event__grid'>
-                <div id='musicians' className='event__grid__section'>
+                <div id={info.musicians.length > 4 ? 'musicians' : ''} className='event__grid__section'>
                     {
                         info.musicians.map((musician, i) => (
                             <p key={i} className='event__grid__section__item' onClick={() => props.toggleProfile(musician)}>{musician.name}</p>
                         ))
                     }
+                    {/* <div className='event__grid__section__hiring'>
+                        { info.hiring.includes("musician") ? <button className='event__hiring' onClick={() => {}}>Hiring</button> : null }
+                    </div> */}
                 </div>
 
-                <div className='event__grid__section'>
-                    {
-                        info.vendors.map((vendor, i) => (
-                            <p key={i} className='event__grid__section__item' onClick={() => props.toggleProfile(vendor)}>{vendor.name}</p>
-                        ))
-                    }
-                </div>
+                {info.vendors.length > 0 ?
+                    <div className='event__grid__section'>
+                        {
+                            info.vendors.map((vendor, i) => (
+                                <p key={i} className='event__grid__section__item' onClick={() => props.toggleProfile(vendor)}>{vendor.name}</p>
+                            ))
+                        }
+                        {/* { info.hiring.includes("vendor") ? <button className='event__hiring' onClick={() => {}}>Hiring</button> : null } */}
+                    </div>
+                : null}
 
                 <div className='event__grid__section'>
                     <p className='event__grid__section__item__nohover'>{info.bio}</p>
@@ -75,6 +90,12 @@ function Event(props: event) {
                     </a>
                 </div>
             </div>
+
+            {info.hiring.length > 0 ?
+                <button id='hiring' onClick={() => {}}>Hiring</button>
+            : null}
+
+            {info.ageRestriction ? <p id="ageRestriction">{info.ageRestriction}+</p> : null }
         </div>
     )
 }

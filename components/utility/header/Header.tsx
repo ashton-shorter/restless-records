@@ -3,11 +3,15 @@ import './styles.scss';
 // Routing
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { login } from '../../definititon';
+
+// Components
+import Login from '../login/Login';
 
 // Mui Icons
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-function Header() {
+function Header(props: login) {
     const headerItems = [
         "community",
         "events",
@@ -20,14 +24,15 @@ function Header() {
     if(currentPage != '/') {    // Get the name of the current page so we don't display it
         currentPage = currentPage.substring(currentPage.indexOf('/') + 1);
     }
-
-    const handleLogin = () => {
-
-    }
-
     return (
         <div className='header'>
-            <Link to={'/'} style={{color: 'inherit', textDecoration: 'inherit'}}><h1 className='header__title'>Restless Records</h1></Link>
+            <Link to={'/'} style={{color: 'inherit', textDecoration: 'inherit'}}>
+                <div className='header__logo__container'>
+                    <div className='header__logo'/>
+                    <h1 className='header__logo__title'>Restless Records</h1>
+                </div>
+            </Link>
+           
 
             <ul className='header__menu'>
                 {headerItems.map((item, i) => (
@@ -39,15 +44,7 @@ function Header() {
                 ))}
             </ul>
 
-            <Link to={'profile'}  style={{textDecoration: 'none', position: 'absolute', right: '0px'}}>
-                <AccountCircleIcon
-                    className='header__menu__item'
-                    onClick={() => handleLogin()}
-                    sx={{fontSize: '3.5vw', color: 'white', position: 'relative', height: '70px', top: '13px', right: '22px', transition: 'all .5s'}}
-                />
-            </Link>
-
-            {/* <Login {...props.loginManager} /> */}
+            <Login {...props} />
         </div>
     )
 }

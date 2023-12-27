@@ -71,17 +71,14 @@ function ProfileViewer(props: profileViewer) {
             <div className='profile'>
                 <h1 className='profile__name'>{profile.name}</h1>
                 <button onClick={() => props.toggleProfile()} className='profile__close'>x</button>
-                <img className='profile__pic' src={profile.picture} />
+                <img className='profile__pic' src={profile.picture ? profile.picture : '/images/artist-logos/sleepy-eyes.png'} />
                 
                 <div className='profile__bio__container'>
                     <p className='profile__bio'>{profile.bio}</p>
                 </div>
                 
                 <div className='profile__social__media'>
-                    {
-                        props.info.profile.socialMedia ?
-                            <SocialMedia {...{socialMedia: props.info.profile.socialMedia}} />
-                    : null}
+                    <SocialMedia {...{socialMedia: props.info.profile.socialMedia}} />
                 </div>
 
                 <div className='profile__media'>

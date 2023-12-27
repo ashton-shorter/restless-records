@@ -1,0 +1,60 @@
+@import '../../../styles/globals.scss';
+
+.events {
+    padding-top: calc($headerHeight + 115px);
+
+    &__header {
+        z-index: 500;
+        position: fixed;
+        top: $headerHeight;
+        left: 0;
+        width: 100vw;
+        background: black;
+        box-shadow: 0 0 10px black;
+        padding-bottom: 15px;
+    
+        &__filter {
+            @include btn;
+            box-shadow: none;
+            width: 150px; height: 40px;
+            font-size: 20px;
+            letter-spacing: .3rem;
+
+            &__active {
+                @include btnInvert;
+                width: 150px; height: 40px;
+                font-size: 20px;
+                letter-spacing: .3rem;
+            }
+
+            &__options{
+                position: relative;
+                left: 15px;
+                display: flex;
+                gap: 15px;
+            }
+        }
+
+        &__search {
+            @include input;
+            height: 40px; width: 400px;
+            padding: 0px;
+            padding-left: 5px;
+            font-size: 25px;
+            font-family: "Downcome";
+            letter-spacing: .1rem;
+            font-style: italic;
+            text-align: left;
+           
+            
+            &__container {
+                height: 60px; 
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                position: relative;
+                left: 15px;
+            }
+        }
+    }
+}

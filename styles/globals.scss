@@ -5,6 +5,11 @@ $purple: rgb(102, 3, 122);
 
 $headerHeight: 96px;
 
+//#region Fonts
+@font-face {
+    font-family: "Barcode";
+    src: local("Barcode"), url(../src/fonts/Barcode.ttf);
+}
 @font-face {
     font-family: "Circusant";
     src: local("Circusant"), url(../src/fonts/Circusant.TTF);
@@ -21,6 +26,11 @@ $headerHeight: 96px;
 }
 
 @font-face {
+    font-family: "KillTheNoise";
+    src: local("KillTheNoise"), url(../src/fonts/KillTheNoise.ttf);
+}
+
+@font-face {
     font-family: "Kontanter";
     src: local("Kontanter"), url(../src/fonts/Kontanter.TTF);
 }
@@ -34,6 +44,7 @@ $headerHeight: 96px;
     font-family: "sleep";
     src: local("sleep"), url(../src/fonts/sleep.ttf);
 }
+//#endregion Fonts
 
 @mixin text {
     color: white;

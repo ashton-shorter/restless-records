@@ -2,5 +2,22 @@
 User can 
     login/out
     update their profile info. 
+        e.g.
+            name
+            bio
+            email
     view analytics
-    
+    edit media
+    edit social media
+
+    business types should be inferred from media
+
+Really from businessInfo i just want to display view analytics & edit business types
+
+
+If the profile is a musician type, the profile pic should be a record
+maybe all of the types can be but idk
+
+
+**NEXT
+Figure out how to upload images

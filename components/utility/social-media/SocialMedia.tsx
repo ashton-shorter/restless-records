@@ -7,10 +7,11 @@ function SocialMedia(props: social) {
     return (
         <div className='socialMedia__container'>
             {props.socialMedia.map((social, i) => (
-                <a key={i} target="_blank" rel="noopener noreferrer" href={social.url}>
-                    <img className='socialMedia__logo' title={social.type} src={`/images/social/${social.type}.png`} />
-                </a>
-            ))}
+                social.url !== '' ? 
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={social.url}>
+                        <img className='socialMedia__logo' title={social.type} src={`/images/social/${social.type}.png`} />
+                    </a>
+            : null))}
         </div>
     )
 }

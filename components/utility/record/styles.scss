@@ -4,15 +4,15 @@
     0% {
         box-shadow: 0px 0px 5px rgb(255, 208, 1),
                     0px 0px 25px rgb(255, 145, 1),
-                    0px -5px 5px rgb(255, 40, 2),
-                    -5px 0px 5px rgb(255, 0, 0);
+                    0px -2.5px 5px rgb(255, 40, 2),
+                    -2.5px 0px 5px rgb(255, 0, 0);
     }
 
     50% {
         box-shadow: 0px 0px 5px rgb(255, 208, 1),
                     0px 0px 25px rgb(255, 145, 1),
-                    0px 10px 5px rgb(255, 40, 2),
-                    5px 0px 5px rgb(255, 0, 0);
+                    0px 2.5px 5px rgb(255, 40, 2),
+                    2.5px 0px 5px rgb(255, 0, 0);
     }
 }
 
@@ -73,8 +73,8 @@
     border-radius: 50%;
     box-shadow: 0px 0px 5px rgb(255, 208, 1),
                 0px 0px 25px rgb(255, 145, 1),
-                0px -5px 5px rgb(255, 40, 2),
-                -5px 0px 5px rgb(255, 0, 0);
+                0px -2.5px 5px rgb(255, 40, 2),
+                -2.5px 0px 5px rgb(255, 0, 0);
     
     background: 
         linear-gradient(30deg, transparent 40%, rgba(0, 0, 0, 0.75) 40%) no-repeat 100% 0,

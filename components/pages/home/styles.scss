@@ -9,6 +9,9 @@
 
 body {
     background: black;
+    &:hover {
+        cursor: default;
+    }
 }
 
 .nextEvent {
@@ -16,14 +19,42 @@ body {
     height: 75px;
     width: 100vw;
     background: black;
+    box-shadow: 0 0 10px black;
+    color: white;
     font-size: 55px;
     text-align: center;
     letter-spacing: .5rem;
+
+    &__barcode {
+        font-family: "Barcode";
+        color: white;
+        font-size: 50px;
+        transform: rotate(90deg);
+
+        position: absolute;
+        top: 4.5px;
+        left: -4px;
+        background: black;
+        width: 66.5px;
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__overlay {
+        z-index: 1;
+        width: 100%;
+        height: 600px;
+        position: absolute;
+        left: 0;
+        animation: lightingFX 40s linear infinite;
+    }
 }
 
 .monthly {
-    padding-top: 50px;
     height: 600px;
+    // background: $pink;
     background: linear-gradient(to bottom, black 50%, $pink);
     &__title {
         @include title;
@@ -44,6 +75,7 @@ body {
 
 .featured {
     height: 675px;
+    // background: black;
     background: linear-gradient(to top, black 50% , $pink);
     &__title {
         @include title;
@@ -75,5 +107,31 @@ body {
             display: flex;
             justify-content: center;
         }
+    }
+}
+
+@keyframes lightingFX{
+    0% {
+        background: rgb(255, 0, 106, .5);
+    }
+
+    20% {
+        background: rgba(98, 0, 255, 0.5);
+    }
+
+    40% {
+        background:rgba(21, 255, 0, 0.6);
+    }
+
+    60% {
+        background: rgba(251, 255, 0, 0.5);
+    }
+
+    80% {
+        background: rgb(255, 0, 0, .5);
+    }
+
+    100% {
+        background: rgb(255, 0, 106, .5);
     }
 }

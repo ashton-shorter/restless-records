@@ -4,6 +4,7 @@ export * from './pages/profile/definition';
 export * from './utility/media/definition';
 export * from './utility/profile-viewer/definition';
 export * from './utility/social-media/definition';
+export * from './utility/login/definition';
 // Events & Venues
 export * from './pages/events/definition';
 export * from './utility/venue/definition';

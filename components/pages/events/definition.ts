@@ -6,7 +6,7 @@ export type eventInfo = {
     vendors: profile[];
 
     name: string;
-    subTitle: string;
+    company: string;
     bio: string;
     image: string;
 
@@ -18,6 +18,8 @@ export type eventInfo = {
     price: number;
     paymentUrl: string; // = "" ? done through me(stripe) : the client's url
     hiring: businessType[];
+
+    ageRestriction?: number;
 }
 
 export type event = {
@@ -25,9 +27,16 @@ export type event = {
     toggleProfile(profile?: profile): void;
 }
 
+export type eventsInfo = {
+    filteredEvents: eventInfo[];
+    activeFilters: string[];
+    currentSearch: string;
+}
+
 export type events = {
-    events: event[];
+    info: eventsInfo;
     toggleProfile(profile?: profile): void;
-    addEvent(event: Event): void;
+    addEvent(event: eventInfo): void;
     delEvent(index: number): void;
+    updateEvents(phrase?: string, updatedFilters?: string[]): void;
 }

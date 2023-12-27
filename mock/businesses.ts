@@ -7,6 +7,7 @@ const oldDate = new Date('July 1, 1999, 12:00:00');
 
 export const BUSINESSES: businessInfo[] = [
     {
+        id: 0,
         profile: {
             name: "Nostalgic 90's",
             media: [
@@ -38,6 +39,7 @@ export const BUSINESSES: businessInfo[] = [
         upcomingEvents: ['regenerate']
     },
     {
+        id: 1,
         profile: {
             name: 'Boots the Cat',
             picture: 'images/artist-logos/boots-the-cat.jpeg',
@@ -105,6 +107,7 @@ export const BUSINESSES: businessInfo[] = [
         upcomingEvents: ['regenerate']
     },
     {
+        id: 2,
         profile: {
             name: 'Matty G',
             media: [{
@@ -133,6 +136,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 3,
         profile: {
             name: 'Sound Elixir',
             media: [{
@@ -161,6 +165,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 4,
         profile: {
             name: 'Death Market',
             media: [{
@@ -189,6 +194,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 5,
         profile: {
             name: 'Alexandria',
             media: [{
@@ -217,6 +223,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 6,
         profile: {
             name: "Molly's Mystical Creations",
             media: [{
@@ -245,6 +252,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 7,
         profile: {
             name: "Kitchn Sink",
             media: [{
@@ -273,6 +281,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 8,
         profile: {
             name: "Hailey's Clothes",
             media: [{
@@ -301,6 +310,7 @@ export const BUSINESSES: businessInfo[] = [
         eventsWorked: 0,
         upcomingEvents: ['regenerate']
     }, {
+        id: 9,
         profile: {
             name: "Rise Up Sculptor",
             media: [{

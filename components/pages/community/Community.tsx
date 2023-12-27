@@ -3,6 +3,7 @@ import './styles.scss';
 import { businessType, community, sort } from './definition';
 // Components
 import Media from '../../utility/media/Media';
+import { useEffect } from 'react';
 
 // I only want to display the latest media for each business because it can start to get too repetitive. View the profile to view more media
 // but what if the business wants to display different kinds of things?
@@ -32,7 +33,6 @@ function Community(props: community) {
 
         return styles;
     }
-
     return (
         <div className='community'>
             <div className='community__header'>
@@ -70,7 +70,7 @@ function Community(props: community) {
             <div className='community__businesses'>
                 {
                     info.filteredBusinesses.map((business, i) => (
-                        
+                        business.profile.media[business.profile.media.length -1].url.length > 8 ?
                         <div className='community__businesses__business' key={i}>
                             <h1 className='community__businesses__business__name' onClick={() =>  props.toggleProfile(business.profile)}>{business.profile.name}</h1>
                             <div className='community__businesses__business__media'>
@@ -85,6 +85,7 @@ function Community(props: community) {
                                 } />
                             </div>
                         </div>
+                        : null
                     ))
                 }
             </div>

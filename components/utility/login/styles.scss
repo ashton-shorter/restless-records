@@ -1,0 +1,168 @@
+@import '../../../styles//globals.scss';
+
+//#region Animations
+@keyframes SlideDown {
+    0% {
+      height: 0px;
+    }
+    75% {
+      height: 326px;
+    }
+    100% {
+        height: auto;
+    }
+}
+
+@keyframes SlideDownSmall {
+    0% {
+      height: 0px;
+    }
+    75% {
+      height: 132px;
+    }
+    100% {
+        height: auto;
+    }
+}
+
+@keyframes SlideUp {
+    0% {
+      height: auto;
+    }
+    100% {
+      height: 0px;
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+}
+//#endregion Animations
+
+.login {
+    //#region login Styles
+    width: 300px;
+
+    position: absolute;
+    top: $headerHeight;
+    right: 15px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    background: black;
+    border: 1px solid $pink;
+    border-top: none;
+    border-right: none;
+    box-shadow: -2px 3px 10px -5px $pink;
+
+    transition: all .5s;
+    animation: 1s SlideDown ease-in-out forwards;
+
+    //#endregion login Styles
+    &__btn {
+        @include btn;
+
+        width: 200px; height: 50px;
+        font-size: 20px;
+
+        animation: FadeIn 2s ease-in;
+    }
+
+    &__btnInvert {
+        width: 200px; height: 40px;
+
+        font-family: "Downcome";
+        font-size: 20px;
+        letter-spacing: .5rem;
+        text-align: center;
+
+        text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 3px red, 0px 0px 15px rgb(102, 3, 122), 0px 0px 35px rgb(255, 255, 255, .3);
+
+        color: rgba(0, 0, 0, 0.178);
+        background: none;
+        
+        transition: all .5s;
+
+        animation: FadeIn 1.5s ease-in;
+
+        &:hover {
+            transition: all .5s;
+            text-shadow: 0px 0px 0px rgb(250, 250, 250), 0px 0px 3px red, 0px 0px 15px rgb(102, 3, 122), 0px 0px 35px rgb(255, 255, 255, .3);
+
+            color: $pink;
+            background:black;
+        }
+    }
+
+    &__input {
+        @include input;
+        width: 250px;
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid $pink;
+        border-radius: 0;
+        text-align: left;
+
+        font-style: italic;
+        font-size: 20px;
+        background: black;
+        letter-spacing: .1rem;
+
+        transition: all .5s;
+        animation: FadeIn 1.5s ease-in;
+
+        &:hover {
+            width: 230px;
+        }
+
+        &::placeholder {
+            text-align: center;
+            color: $lightPink;
+        }
+    }
+}
+
+#forgotPass {
+    width: 250px;
+    margin-top: 15px;
+    font-size: 16px; 
+
+    transition: all .5s;
+    animation: FadeIn 2s ease-in;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#loggedIn__menu {
+    position: absolute;
+    padding-top: 0px;
+    gap: 0px;
+
+    .login__btnInvert {
+        border: 1px solid $pink;
+        width: 300px;
+
+        &:hover {
+            background: $pink;
+            color: black;
+        }
+    }
+}
+
+.login__menu__name {
+    color: $pink;
+    font-size: 45px;
+    font-family: "KillTheNoise";
+}

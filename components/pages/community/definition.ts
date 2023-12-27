@@ -7,6 +7,7 @@ export type businessType =
     'bartender' | 'security' | 'stagehand';
 
 export type businessInfo = {
+    id: string;
     profile: profile;
     views: data;    // Type Data to provide analytics
     types: businessType[];

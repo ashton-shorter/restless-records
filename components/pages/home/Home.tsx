@@ -44,7 +44,12 @@ function Home(props: home) {
     return (
         <>
             <Banner />
-            <h1 className='nextEvent'>Next Event</h1>
+            <div className='nextEvent__container'>
+                <p className='nextEvent__barcode'>Sleepy</p>
+                <h1 className='nextEvent'>Next Event</h1>
+            </div>
+            
+            <div className='nextEvent__overlay' />
             <Event {...eventProps}/>
 
             <div className='monthly'>
